@@ -1,5 +1,5 @@
 {
-    "name": "leap-debug-toolbar",
+    "name": "leap.debug.toolbar",
     "version": "0.1.0",
     "description": "Javascript Debug Toolbar about Leap Motion",
     "main": "index.js",

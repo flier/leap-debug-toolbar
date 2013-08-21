@@ -34,10 +34,12 @@ module.exports = (grunt) ->
         src: 'build/<%= pkg.name %>.js'
         dest: 'build/<%= pkg.name %>.min.js'
 
-  grunt.loadNpmTasks 'grunt-contrib-clean'
-  grunt.loadNpmTasks 'grunt-contrib-coffee'
-  grunt.loadNpmTasks 'grunt-contrib-jshint'
-  grunt.loadNpmTasks 'grunt-contrib-uglify'
+  grunt.loadNpmTasks task for task in [
+    'grunt-contrib-clean',
+    'grunt-contrib-coffee',
+    'grunt-contrib-jshint',
+    'grunt-contrib-uglify'
+  ]
 
   grunt.registerTask 'default', ['clean:build', 'coffee:compile', 'jshint']
   grunt.registerTask 'release', ['clean:release', 'coffee:compile', 'jshint', 'uglify']
