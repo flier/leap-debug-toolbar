@@ -14,7 +14,7 @@ module.exports = (grunt) ->
           join: true
           sourceMap: true
         files:
-          'build/leap-debug-toolbar.js': ['src/*.coffee']
+          'build/leap.debug.toolbar.js': ['src/*.coffee']
 
     jshint:
       options:
