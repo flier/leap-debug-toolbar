@@ -1,13 +1,22 @@
 # controller.coffee
 define [
   'underscore',
-  'leap'
-], (_, leap) ->
+  'leap',
+  'toastr'
+], (_, leap, toastr) ->
   controller = new leap.Controller()
+
+  if toastr
+    toastr.options =
+      positionClass: "toast-bottom-right"
+      onclick: null
 
   # The client is connected to the websocket server
   controller.on 'connect', () ->
-    console.log 'controller connected!'
+    if toastr
+      toastr.success 'Leap Motion', 'controller connected!'
+    else
+      console.log 'controller connected!'
 
   # The protocal has been selected for the connection.
   controller.on 'protocol', (protocol) ->
@@ -19,10 +28,16 @@ define [
 
   # A Leap device has been connected
   controller.on 'deviceConnected', () ->
-    console.log 'leap device ready'
+    if toastr
+      toastr.success 'Leap Motion', 'leap device ready'
+    else
+      console.log 'leap device ready'
 
   # A Leap device has been disconnected
   controller.on 'deviceDisconnected', () ->
-    console.log 'leap device offline'
+    if toastr
+      toastr.warning 'Leap Motion', 'leap device offline'
+    else
+      console.log 'leap device offline'
 
   controller.connect()
