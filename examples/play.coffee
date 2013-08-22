@@ -14,20 +14,16 @@ require.config
             exports: '_'
         underscore_string:
             deps: ['underscore']
+        toastr:
+            deps: ['css!../lib/toastr/toastr']
         leap:
             exports: 'Leap'
         leap_debug_toolbar:
             deps: ['leap']
-
-loadCss = (url) ->
-  link = document.createElement "link"
-
-  link.type = "text/css"
-  link.rel = "stylesheet"
-  link.href = url
-
-  document.getElementsByTagName("head")[0].appendChild(link)
+    map:
+      '*':
+        'css': '../lib/requirejs/css'
 
 require ['jquery', 'leap', 'leap_debug_toolbar'], ($, leap) ->
-  loadCss('../lib/toastr/toastr.css')
+  console.log "play now!"
 

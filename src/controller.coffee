@@ -10,6 +10,7 @@ define [
     toastr.options =
       positionClass: "toast-bottom-right"
       onclick: null
+      newestOnTop: false
 
   # The client is connected to the websocket server
   controller.on 'connect', () ->
